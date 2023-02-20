@@ -204,6 +204,7 @@ type Options struct {
 	Type              Type
 	PlaylistStart     uint // --playlist-start
 	PlaylistEnd       uint // --playlist-end
+	FlatPlaylist      bool // --flat-playlist
 	DownloadThumbnail bool
 	DownloadSubtitles bool
 	DebugLog          Printer
@@ -258,6 +259,11 @@ func infoFromURL(ctx context.Context, rawURL string, options Options) (info Info
 		"--batch-file", "-",
 		"-J",
 	)
+
+	if options.FlatPlaylist {
+		cmd.Args = append(cmd.Args, "--flat-playlist")
+	}
+
 	if options.Type == TypePlaylist {
 		cmd.Args = append(cmd.Args, "--yes-playlist")
 
