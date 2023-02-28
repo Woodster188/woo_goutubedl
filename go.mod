@@ -1,4 +1,4 @@
-module github.com/wader/goutubedl
+module github.com/woodster188/woo_goutubedl
 
 go 1.12
 
